@@ -34,17 +34,56 @@ end
 
 ## View
 
+With next and previous, without page links:
+
 ```slim
 - p = params.permit('*')
-- if pagination.previous_page || pagination.next_page
+- if @pagination.previous_page || @pagination.next_page
   .pagination
-    - if pagination.previous_page
+    - if @pagination.previous_page
       a.btn.btn-link href=url_for(p.merge(page: nil)) ‹
-      a.btn.btn-link href=url_for(p.merge(page: pagination.previous_page)) = t('previous')
-    - if pagination.next_page
-      a.btn.btn-link href=url_for(p.merge(page: pagination.next_page)) = t('next')
-      a.btn.btn-link href=url_for(p.merge(page: pagination.page_count - 1)) ›
+      a.btn.btn-link href=url_for(p.merge(page: @pagination.previous_page)) = t('previous')
+    - if @pagination.next_page
+      a.btn.btn-link href=url_for(p.merge(page: @pagination.next_page)) = t('next')
+      a.btn.btn-link href=url_for(p.merge(page: @pagination.page_count - 1)) ›
 ```
+
+With next, previous, and page links:
+
+```slim
+- p = params.permit('*')
+- if @pagination.previous_page || @pagination.next_page
+  .pagination
+    - if @pagination.previous_page
+      a.btn.btn-link href=url_for(p.merge(page: nil)) ‹
+      a.btn.btn-link href=url_for(p.merge(page: @pagination.previous_page)) = t('previous')
+      - ([0, @pagination.page-4].max..@pagination.page-1).each do |page|
+        li
+          a href=url_for(params.merge(page: page)) #{page+1}
+    - if @pagination.next_page
+      - (@pagination.page+1..[@pagination.page_count-1, @pagination.page+4].min).each do |page|
+        li
+          a href=url_for(params.merge(page: page)) #{page+1}
+      a.btn.btn-link href=url_for(p.merge(page: @pagination.next_page)) = t('next')
+      a.btn.btn-link href=url_for(p.merge(page: @pagination.page_count - 1)) ›
+```
+
+
+## Performance
+
+Performance is :thumbsup:
+
+## Plugins
+
+There are no plugins :electric_plug:.
+
+## Advanced usage
+
+:thumbsup:
+
+## Bootstrap integration
+
+:thumbsup:
 
 ## Development
 
