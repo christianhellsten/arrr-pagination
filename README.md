@@ -1,6 +1,6 @@
 # Arrr::Pagination
 
-![Pagination for ActiveRecord](https://github.com/altercation/solarized/raw/master/screenshot.png?raw=true "Pagination for ActiveRecord")
+![Pagination for ActiveRecord](https://github.com/christianhellsten/arrr-pagination/raw/master/screenshot.png?raw=true "Pagination for ActiveRecord")
 
 ## Installation
 
