@@ -1,5 +1,7 @@
 # Arrr::Pagination
 
+![Pagination for ActiveRecord](https://github.com/altercation/solarized/raw/master/screenshot.png?raw=true "Pagination for ActiveRecord")
+
 ## Installation
 
 Add this line to your application's Gemfile:
