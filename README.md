@@ -7,7 +7,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'arrr-pagination', github: 'https://github.com/christianhellsten/arrr-pagination.git'
+gem 'arrr-pagination', github: 'christianhellsten/arrr-pagination'
 ```
 
 And then execute:
