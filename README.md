@@ -5,7 +5,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'arrr-pagination', github: ''
+gem 'arrr-pagination', github: 'https://github.com/christianhellsten/arrr-pagination.git'
 ```
 
 And then execute:
@@ -31,6 +31,21 @@ class EventsController < ApplicationController
   end
 end
 ```
+
+## View
+
+```slim
+- p = params.permit('*')
+- if pagination.previous_page || pagination.next_page
+  .pagination
+    - if pagination.previous_page
+      a.btn.btn-link href=url_for(p.merge(page: nil)) ‹
+      a.btn.btn-link href=url_for(p.merge(page: pagination.previous_page)) = t('previous')
+    - if pagination.next_page
+      a.btn.btn-link href=url_for(p.merge(page: pagination.next_page)) = t('next')
+      a.btn.btn-link href=url_for(p.merge(page: pagination.page_count - 1)) ›
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
