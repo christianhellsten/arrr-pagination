@@ -39,7 +39,7 @@ end
 With next and previous, without page links:
 
 ```slim
-- p = params.permit('*')
+- p = params.permit
 - if @pagination.previous_page || @pagination.next_page
   .pagination
     - if @pagination.previous_page
@@ -53,7 +53,7 @@ With next and previous, without page links:
 With next, previous, and page links:
 
 ```slim
-- p = params.permit('*')
+- p = params.permit
 - if @pagination.previous_page || @pagination.next_page
   .pagination
     - if @pagination.previous_page
@@ -61,11 +61,11 @@ With next, previous, and page links:
       a.btn.btn-link href=url_for(p.merge(page: @pagination.previous_page)) = t('previous')
       - ([0, @pagination.page-4].max..@pagination.page-1).each do |page|
         li
-          a href=url_for(params.merge(page: page)) #{page+1}
+          a href=url_for(p.merge(page: page)) #{page+1}
     - if @pagination.next_page
       - (@pagination.page+1..[@pagination.page_count-1, @pagination.page+4].min).each do |page|
         li
-          a href=url_for(params.merge(page: page)) #{page+1}
+          a href=url_for(p.merge(page: page)) #{page+1}
       a.btn.btn-link href=url_for(p.merge(page: @pagination.next_page)) = t('next')
       a.btn.btn-link href=url_for(p.merge(page: @pagination.page_count - 1)) ›
 ```
