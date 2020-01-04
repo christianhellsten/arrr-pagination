@@ -77,7 +77,7 @@ Performance is :thumbsup:
 
 ## Plugins
 
-:electric_plug: :thumbsup:
+:pig_nose: :electric_plug:
 
 ## Advanced usage
 
