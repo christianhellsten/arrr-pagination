@@ -1,4 +1,4 @@
-# Arrr::Pagination
+# Arrr::Pagination :boat:
 
 ![Pagination for ActiveRecord](https://github.com/christianhellsten/arrr-pagination/raw/master/screenshot.png?raw=true "Pagination for ActiveRecord")
 
@@ -77,7 +77,7 @@ Performance is :thumbsup:
 
 ## Plugins
 
-There are no plugins :electric_plug:.
+:electric_plug: :thumbsup:
 
 ## Advanced usage
 
