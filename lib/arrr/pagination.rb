@@ -4,12 +4,13 @@ module Arrr
   class Pagination
     Page = Struct.new(
       :page,
+      :row_count,
       :page_count,
       :previous_page,
       :next_page,
       keyword_init: true
     )
-    PER_PAGE ||= 10
+    PER_PAGE = 10
     def self.call(relation:, page: 0, per_page: PER_PAGE)
       page = page.to_i
       per_page = per_page.to_i
@@ -22,6 +23,7 @@ module Arrr
       pagination = Page.new(
         page: page,
         page_count: page_count,
+        row_count: row_count,
         previous_page: has_previous_page ? page - 1 : nil,
         next_page: has_next_page ? page + 1 : nil
       )
